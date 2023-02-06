@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.headerLinks:hover, .borderBottomText {
+  border-bottom: 2px solid #502314;
+} 
+.foodTypeImg {
+  transition: height 0.5s;
+}
+.foodCard:hover .foodTypeImg{
+  height: 85%;
+}
+.backButton:hover {
+  background-color: #ef8114;
+}
+.backButton:hover .backButtonSvg {
+  color: white;
+}
+.nameFont {
+  font-family: 'Titan One', cursive;
+  color: #502314;
+}
+.descriptionFont{
+  font-family: 'Lexend Deca', sans-serif;
+}
+.orderFont {
+  font-family: 'Bevan', cursive;
+}
+.h1Font {
+  font-family: 'Titan One', cursive;
+}
+.carruselCardFont {
+  font-family: 'Ultra', serif;
+}
+.roundedFont {
+  font-family: 'Varela Round', sans-serif;
+}
+.orderSign {
+  transition: height 0.5s;
+}
+.orderSign:hover {
+  height: 4rem;
+}
+.confirmOrderButton:hover {
+  background-color: white;
+  border: solid 1px #ef8114;
+  color: #ef8114;
+}
+.white-svg{
+  filter: invert(100%) sepia(0%) saturate(7470%) hue-rotate(62deg) brightness(102%) contrast(105%);
+}
+html, body, #root {
+  height: 100%;
+}
+.wrapper {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+.body {
+  height:100%;
+  background-color: #fff;
+  color: #333;
+  font: 1.2em / 1.5 Helvetica Neue, Helvetica, Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+}
