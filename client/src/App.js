@@ -22,13 +22,12 @@ const App = () => {
   const [frontPage, setFrontPage] = useState(null);
 
   useEffect(() => {
-    console.log("effect");
-    axios.get("http://localhost:3001/api/foodTypes").then((response) => {
+    axios.get("http://foodapp.ballesterosrivasa.com/api/foodTypes").then((response) => {
       console.log("promise fulfilled");
       setFoodTypes(response.data);
       console.log("foodTypes", foodTypes);
     });
-    axios.get("http://localhost:3001/api/products").then((response) => {
+    axios.get("http://foodapp.ballesterosrivasa.com/api/products").then((response) => {
       console.log("promise fulfilled");
       setProducts(response.data);
       console.log("products", products);

@@ -382,7 +382,7 @@ app.get('/api/products', (request, response) => {
   response.json(products)
 })
 
-const PORT = 3001
+const PORT = 8800
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
