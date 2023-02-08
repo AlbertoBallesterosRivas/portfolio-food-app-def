@@ -2,45 +2,8 @@ const express = require('express')
 const cors = require('cors')
 const app = express()
 
-app.use(express.static('build'))
+// app.use(express.static('build'))
 app.use(cors())
-
-// import hamburguers from "./assets/hamburguers.png";
-// import drinks from "./assets/drinks.png";
-// import fanta from "./assets/fanta.png";
-// import tropicana from "./assets/tropicana.png";
-// import aquarius from "./assets/aquarius.png";
-// import hamburguesaPollo from "./assets/hamburguesaPollo.png";
-// import hamburguesaQueso from "./assets/hamburguesaQueso.png";
-// import hamburguesaPescado from "./assets/hamburguesaPescado.png";
-// import hamburguesaHuevo from "./assets/hamburguesaHuevo.png";
-// import alitasPollo from "./assets/alitasPollo.png";
-// import patatasFritas from "./assets/patatasFritas.png";
-// import gazpacho from "./assets/gazpacho.png";
-// import nuggets from "./assets/nuggets.png";
-// import heladoVainillaChocolate from "./assets/heladoVainillaChocolate.png";
-// import heladoVainillaFresa from "./assets/heladoVainillaFresa.png";
-// import heladoVainillaCaramelo from "./assets/heladoVainillaCaramelo.png";
-// import heladoVainillaChocolateBlanco from "./assets/heladoVainillaChocolateBlanco.png";
-// import pastelManzana from "./assets/pastelManzana.png";
-// import piña from "./assets/piña.png";
-// import tartaChocolate from "./assets/tartaChocolate.png";
-// import ensaladaBurrata from "./assets/ensaladaBurrata.jpeg";
-// import ensaladaCesar from "./assets/ensaladaCesar.jpg";
-// import ensaladaGuacamole from "./assets/ensaladaGuacamole.jpg";
-// import ensaladaCobb from "./assets/ensaladaCobb.jpg";
-// import tostadaAceite from "./assets/tostadaAceite.png";
-// import tostadaJamon from "./assets/tostadaJamon.png";
-// import croissant from "./assets/croissant.png";
-// import donut from "./assets/donut.png";
-// import donutChocolate from "./assets/donutChocolate.png";
-// import cafeLeche from "./assets/cafeLeche.png";
-// import capuccino from "./assets/capuccino.png";
-// import cafeVienes from "./assets/cafeVienes.png";
-// import cafeExpresso from "./assets/cafeExpresso.png";
-// import batidoChocolate from "./assets/batidoChocolate.png";
-// import batidoVainilla from "./assets/batidoVainilla.png";
-// import batidoFresa from "./assets/batidoFresa.png";
 
 const foodTypes = [
   { id: 1, type: "Hamburguesas", img: "/assets/hamburguers.png" },

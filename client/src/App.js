@@ -23,12 +23,12 @@ const App = () => {
 
   useEffect(() => {
     console.log("effect");
-    axios.get("/api/foodTypes").then((response) => {
+    axios.get("http://164.92.167.25:8800/api/foodTypes").then((response) => {
       console.log("promise fulfilled");
       setFoodTypes(response.data);
       console.log("foodTypes", foodTypes);
     });
-    axios.get("/api/products").then((response) => {
+    axios.get("http://164.92.167.25:8800/api/products").then((response) => {
       console.log("promise fulfilled");
       setProducts(response.data);
       console.log("products", products);
