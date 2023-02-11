@@ -5,8 +5,6 @@ const OrderItem = ({ item, order, setOrder, total, setTotal }) => {
     order.filter((orderItem) => orderItem.name === item.name).length
   );
   const [price, setPrice] = useState(parseFloat(item.price) * quantity);
-  
-  console.log("quantity", quantity);
 
   const handleDeleteClick = () => {
     const newOrder = order.filter((orderItem) => orderItem.name !== item.name);
@@ -16,18 +14,19 @@ const OrderItem = ({ item, order, setOrder, total, setTotal }) => {
   const handleIncreaseClick = () => {
     setOrder([...order, item]);
     setQuantity(quantity + 1);
-    setPrice(parseFloat(item.price) * (quantity + 1))
-    setTotal(total + parseFloat(item.price))
-    console.log("price", price, "total", total);
+    setPrice(parseFloat(item.price) * (quantity + 1));
+    setTotal(total + parseFloat(item.price));
   };
 
   const handleDecreaseClick = () => {
-    const itemIndex = order.findIndex(orderItem => orderItem.name === item.name)
-    order.splice(itemIndex, 1)
+    const itemIndex = order.findIndex(
+      (orderItem) => orderItem.name === item.name
+    );
+    order.splice(itemIndex, 1);
     setOrder(order);
     setQuantity(quantity - 1);
-    setPrice(parseFloat(item.price) * (quantity - 1))
-    setTotal(total - parseFloat(item.price))
+    setPrice(parseFloat(item.price) * (quantity - 1));
+    setTotal(total - parseFloat(item.price));
   };
 
   return (
@@ -36,7 +35,9 @@ const OrderItem = ({ item, order, setOrder, total, setTotal }) => {
         <h3 className="h1Font text-2xl text-[#502314] ml-4 mt-3">
           {item.name} {quantity > 1 ? `(${quantity})` : ""}
         </h3>
-        <span className="roundedFont text-xl font-bold text-[#3d3d3d] mr-4 mt-3">{price.toFixed(2)}€</span>
+        <span className="roundedFont text-xl font-bold text-[#3d3d3d] mr-4 mt-3">
+          {price.toFixed(2)}€
+        </span>
       </div>
       <div className="flex justify-end items-center w-full">
         <div
@@ -85,7 +86,9 @@ const OrderItem = ({ item, order, setOrder, total, setTotal }) => {
           ""
         )}
 
-        <span className="roundedFont text-xl font-bold text-[#502314]">{quantity > 1 ? `(${quantity})` : ""}</span>
+        <span className="roundedFont text-xl font-bold text-[#502314]">
+          {quantity > 1 ? `(${quantity})` : ""}
+        </span>
         <div
           onClick={handleIncreaseClick}
           className="border-2 border-[#502314] rounded-full mx-5 h-10 w-10 flex justify-center items-center cursor-pointer"

@@ -1,12 +1,9 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Carrusel from "./Carrusel";
 import BigBurguer from "../assets/bigBurguer.png";
-import hamburguers from "../assets/hamburguersHD.jpg"
-import hamburguerHD from "../assets/hamburguerHD.png"
+import hamburguerHD from "../assets/hamburguerHD.png";
+
 const Home = ({ products, setSelectedProduct }) => {
-  // const handleOrderClick = () => {
-  //   setMenuView(true);
-  // };
   return (
     <>
       <div className="relative flex items-center justify-center flex-col w-full h-[435px] mt-[82px] overflow-hidden">

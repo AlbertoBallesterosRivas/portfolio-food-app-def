@@ -9,7 +9,8 @@ import {
   redirect,
   useNavigate,
 } from "react-router-dom";
-const OrderSign = ({ order, setOrderCheckout }) => {
+
+const OrderSign = () => {
   const [mouseIn, setMouseIn] = useState(false);
 
   const handleMouseEnterSign = () => {
@@ -36,7 +37,6 @@ const OrderSign = ({ order, setOrderCheckout }) => {
         )}
         <div className="absolute w-24 top-[-67px] right-[25%]">
           <img src={bags} alt="" />
-          {/* <span className="absolute ml-[50%] mt-[50%] text-6xl font-bold">{order.length}</span> */}
         </div>
       </div>
     </Link>

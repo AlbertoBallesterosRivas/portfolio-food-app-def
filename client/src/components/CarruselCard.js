@@ -4,7 +4,7 @@ const CarruselCard = ({ product, setSelectedProduct }) => {
   const handleButtonClick = () => {
     setSelectedProduct(product);
   };
-  console.log("CARRUSELCARD PRODUCT", product);
+
   let backgroundColor = null;
   let textColor = null;
 

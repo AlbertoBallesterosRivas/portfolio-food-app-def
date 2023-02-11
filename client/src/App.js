@@ -2,13 +2,11 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Header from "./components/Header";
 import Menu from "./components/Menu";
-import OrderSign from "./components/OrderSign";
 import OrderCheckout from "./components/OrderCheckout";
 import Home from "./components/Home";
 import Footer from "./components/Footer";
 import "./app.css";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import FoodTypes from "./components/FoodTypes";
 import ProductCard from "./components/ProductCard";
 import ProductDetails from "./components/ProductDetails";
 
@@ -18,20 +16,15 @@ const App = () => {
   const [order, setOrder] = useState([]);
   const [orderCheckout, setOrderCheckout] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [menuView, setMenuView] = useState(null);
   const [frontPage, setFrontPage] = useState(null);
 
   useEffect(() => {
     console.log("effect");
-    axios.get("http://164.92.167.25:8800/api/foodTypes").then((response) => {
-      console.log("promise fulfilled");
+    axios.get("http://localhost:8800/api/foodTypes").then((response) => {
       setFoodTypes(response.data);
-      console.log("foodTypes", foodTypes);
     });
-    axios.get("http://164.92.167.25:8800/api/products").then((response) => {
-      console.log("promise fulfilled");
+    axios.get("http://localhost:8800/api/products").then((response) => {
       setProducts(response.data);
-      console.log("products", products);
     });
   }, []);
 
@@ -41,10 +34,8 @@ const App = () => {
 
   return (
     <Router>
-      {/* <div className="h-full flex flex-col"> */}
       <div className="body">
-      <div className="wrapper">
-        {/* <div className="flex-[1_0_auto]"> */}
+        <div className="wrapper">
           <Header setFrontPage={setFrontPage} Link={Link} order={order} />
 
           <Routes>
@@ -61,15 +52,28 @@ const App = () => {
                 />
               }
             />
-              <Route
-                path="/carta/:foodType"
-                element={<ProductCard products={products} foodTypes={foodTypes} order={order} />}
-              />
-              <Route
-                path="/producto/:id"
-                element={<ProductDetails products={products} order={order} setOrder={setOrder} foodTypes={foodTypes} />}
-              />
-          
+            <Route
+              path="/carta/:foodType"
+              element={
+                <ProductCard
+                  products={products}
+                  foodTypes={foodTypes}
+                  order={order}
+                />
+              }
+            />
+            <Route
+              path="/producto/:id"
+              element={
+                <ProductDetails
+                  products={products}
+                  order={order}
+                  setOrder={setOrder}
+                  foodTypes={foodTypes}
+                />
+              }
+            />
+
             <Route
               path="/"
               element={
@@ -92,8 +96,8 @@ const App = () => {
             />
           </Routes>
 
-        <Footer />
-      </div>
+          <Footer />
+        </div>
       </div>
     </Router>
   );

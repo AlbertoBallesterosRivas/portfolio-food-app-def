@@ -17,9 +17,6 @@ const Carrusel = ({ products, setSelectedProduct }) => {
   const [currentSide, setCurrentSide] = useState(
     sides[Math.floor(Math.random() * sides.length)]
   );
-  console.log("currentBurguer", currentBurguer);
-  console.log("currentDrink", currentDrink);
-  console.log("currentSide", currentSide);
 
   const handleLeftArrowClick = () => {
     let previousBurguer = null
@@ -74,9 +71,7 @@ const Carrusel = ({ products, setSelectedProduct }) => {
       setCurrentSide(nextSide)
     }
   }
-  // console.log("CURRENTBURGUER",currentBurguer);
-  // console.log("currentDrink",currentDrink);
-  // console.log("currentSide",currentSide);
+
   return (
     <div className="flex h-[600px] w-full relative">
       <svg

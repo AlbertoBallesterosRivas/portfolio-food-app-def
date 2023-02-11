@@ -9,11 +9,8 @@ import MenuHeader from "./MenuHeader";
 import OrderSign from "./OrderSign";
 
 const ProductCard = ({ products, foodTypes, order }) => {
-  //const productType = useParams().productType
   let { foodType } = useParams();
-  console.log("foodType", foodType);
-  console.log("ENTRANOW");
-  // const note = products.find(n => n.productType === productType)
+
   const filteredProducts = products.filter(
     (product) => product.type === foodType
   );
@@ -47,7 +44,6 @@ const ProductCard = ({ products, foodTypes, order }) => {
             <Link key={product.name} to={`/producto/${product.id}`}>
               <li
                 key={product.name}
-                // onClick={() => handleProductCardClick(product)}
                 className="foodCard w-64 h-52 border-4 border-solid border-[#f5ebdc] rounded-[10px] cursor-pointer m-5"
               >
                 <div className="flex justify-center items-center h-4/6 bg-[#f5ebdc] ">
