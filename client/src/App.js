@@ -20,10 +20,10 @@ const App = () => {
 
   useEffect(() => {
     console.log("effect");
-    axios.get("http://localhost:8800/api/foodTypes").then((response) => {
+    axios.get("http://127.0.0.1:8800/api/foodTypes").then((response) => {
       setFoodTypes(response.data);
     });
-    axios.get("http://localhost:8800/api/products").then((response) => {
+    axios.get("http://127.0.0.1:8800/api/products").then((response) => {
       setProducts(response.data);
     });
   }, []);
