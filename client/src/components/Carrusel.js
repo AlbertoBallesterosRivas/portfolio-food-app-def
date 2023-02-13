@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CarruselCard from "./CarruselCard";
 
 const Carrusel = ({ products, setSelectedProduct }) => {
@@ -7,17 +7,44 @@ const Carrusel = ({ products, setSelectedProduct }) => {
   );
   const drinks = products.filter((product) => product.type === "Refrescos");
   const sides = products.filter((product) => product.type === "Complementos");
-  
-  const [currentBurguer, setCurrentBurguer] = useState(
-    burguers[Math.floor(Math.random() * burguers.length)]
-  );
-  const [currentDrink, setCurrentDrink] = useState(
-    drinks[Math.floor(Math.random() * drinks.length)]
-  );
-  const [currentSide, setCurrentSide] = useState(
-    sides[Math.floor(Math.random() * sides.length)]
-  );
+  const [currentBurguer, setCurrentBurguer] = useState(null)
+  const [currentDrink, setCurrentDrink] = useState(null)
+  const [currentSide, setCurrentSide] = useState(null)
+  // const [currentBurguer, setCurrentBurguer] = useState(
+  //   burguers[Math.floor(Math.random() * (burguers.length - 1))]
+  // );
+  // const [currentDrink, setCurrentDrink] = useState(
+  //   drinks[Math.floor(Math.random() * (drinks.length - 1))]
+  // );
+  // const [currentSide, setCurrentSide] = useState(
+  //   sides[Math.floor(Math.random() * (sides.length - 1))]
+  // );
+let number = null
+  useEffect(() => {
+    number = Math.floor(Math.random() * (burguers.length - 1))
+    console.log("NUMBER", number);
+    setCurrentBurguer(burguers[number])
+    
+    setCurrentDrink(drinks[number])
+    setCurrentSide(sides[number])
 
+    console.log("burguers[number]", burguers[number]);
+    console.log("drinks[number]", drinks[number]);
+    console.log("sides[number]", sides[number]);
+
+  }, [])
+  // console.log("CURRENT BURGUER", currentBurguer);
+  // console.log("CURRENT DRINK", currentDrink);
+  // console.log("CURRENT SIDE", currentSide);
+  // console.log("burguers", burguers);
+  // console.log("drinks", drinks);
+  // console.log("sides", sides);
+  // console.log("number hamburguers", Math.floor(Math.random() * (burguers.length - 1)));
+  // console.log("number drinks", Math.floor(Math.random() * (drinks.length - 1)));
+  // console.log("number sides", Math.floor(Math.random() * (sides.length - 1)));
+  // console.log("current not current hamburguer", burguers[Math.floor(Math.random() * (burguers.length - 1))]);
+  // console.log("current not current drink", drinks[Math.floor(Math.random() * (drinks.length - 1))]);
+  // console.log("current not current side", sides[Math.floor(Math.random() * (sides.length - 1))]);
   const handleLeftArrowClick = () => {
     let previousBurguer = null
     let previousDrink = null

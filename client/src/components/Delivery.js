@@ -1,7 +1,11 @@
 import map from "../assets/map.png";
 import mapPin from "../assets/mapPin.png";
 
-const Delivery = () => {
+const Delivery = ({address, setAddress}) => {
+  const handleAddressChange = (event) => {
+    setAddress(event.target.value);
+  }
+  
   return (
     <div className="w-[440px] h-[256px] relative flex justify-center">
       <div className="flex flex-col items-center w-[90%] h-fit z-10 relative shadow-orderItem rounded-md">
@@ -10,6 +14,8 @@ const Delivery = () => {
         </span>
         <div className="flex flex-col items-center justify-center w-full h-[75px] bg-white rounded-b-md">
           <input
+            value={address}
+            onChange={handleAddressChange}
             className="placeholder:text-[#ff8732] placeholder:font-bold placeholder:roundedFont focus:outline-none text-[#ff8732] font-bold roundedFont"
             placeholder="Introduzca la dirección"
           ></input>

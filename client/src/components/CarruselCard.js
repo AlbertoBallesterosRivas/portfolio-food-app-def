@@ -7,7 +7,7 @@ const CarruselCard = ({ product, setSelectedProduct }) => {
 
   let backgroundColor = null;
   let textColor = null;
-
+  if(!product) return null
   switch (product.type) {
     case "Hamburguesas":
       backgroundColor = "bg-[#502314]";
@@ -26,6 +26,8 @@ const CarruselCard = ({ product, setSelectedProduct }) => {
       textColor = "text-[#502314]";
       break;
   }
+
+
 
   return (
     <div

@@ -16,6 +16,7 @@ import {
 import useBreakpoints from "./useBreakPoints";
 
 import Swal from "sweetalert2";
+import { Tooltip } from "react-tooltip";
 
 const OrderCheckout = ({ order, setOrder, products }) => {
   const { isXs, isSm, isMd } = useBreakpoints();
@@ -23,6 +24,7 @@ const OrderCheckout = ({ order, setOrder, products }) => {
   const [total, setTotal] = useState(0);
   const [delivery, setDelivery] = useState(0);
   const [totalGlobal, setTotalGlobal] = useState(0);
+  const [address, setAddress] = useState("");
 
   useEffect(() => {
     setTotal(
@@ -57,6 +59,8 @@ const OrderCheckout = ({ order, setOrder, products }) => {
     setOrder([]);
     navigate("/");
   };
+
+console.log("ORDER", order);
 
   return (
     <div className="h-full bg-[rgb(245,245,245)]">
@@ -123,7 +127,7 @@ const OrderCheckout = ({ order, setOrder, products }) => {
           <SellMore products={products} order={order} />
         </div>
         <div className={`${isXs || isSm || isMd ? "my-16" : ""}`}>
-          <Delivery />
+          <Delivery address={address} setAddress={setAddress} />
           <Total total={total} />
           <DeliveryPrice
             total={total}
@@ -133,12 +137,24 @@ const OrderCheckout = ({ order, setOrder, products }) => {
             setTotalGlobal={setTotalGlobal}
           />
           <button
+            id="orderButton"
             onClick={handleOrderClick}
-            className={`bg-[#ff8732] w-[439px] h-[47px] mt-2 rounded-xl text-white uppercase roundedFont font-bold confirmOrderButton ${order.length === 0 ? "cursor-[not-allowed]":""}`}
-            disabled={order.length === 0 ? "true":""}
+            className={`bg-[#ff8732] w-[439px] h-[47px] mt-2 rounded-xl text-white uppercase roundedFont font-bold confirmOrderButton ${
+              order.length === 0 ? "cursor-[not-allowed]" : ""
+            } ${address === "" ? "cursor-[not-allowed]" : ""}`}
+            disabled={order.length === 0 ? "true" : ""}
           >
             Tramitar pedido
           </button>
+
+          {address === "" ? (
+            <Tooltip anchorId="orderButton" clickable>
+              <span>Introduzca la dirección</span>
+            </Tooltip>
+          ) : (
+            ""
+          )}
+          
         </div>
       </div>
     </div>
