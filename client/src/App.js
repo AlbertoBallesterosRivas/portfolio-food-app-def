@@ -20,10 +20,10 @@ const App = () => {
 
   useEffect(() => {
     console.log("effect");
-    axios.get("http://127.0.0.1:8800/api/foodTypes").then((response) => {
+    axios.get("http://127.0.0.1:8800/react-food-api/foodTypes").then((response) => {
       setFoodTypes(response.data);
     });
-    axios.get("http://127.0.0.1:8800/api/products").then((response) => {
+    axios.get("http://127.0.0.1:8800/react-food-api/products").then((response) => {
       setProducts(response.data);
     });
   }, []);
@@ -33,7 +33,7 @@ const App = () => {
   }
 
   return (
-    <Router>
+    <Router basename="/react-food">
       <div className="body">
         <div className="wrapper">
           <Header setFrontPage={setFrontPage} Link={Link} order={order} />

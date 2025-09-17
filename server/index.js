@@ -334,15 +334,11 @@ const products = [
   },
 ];
 
-app.get('/', (request, response) => {
-  response.send('<h1>Hello World!</h1>')
-})
-
-app.get('/api/foodTypes', (request, response) => {
+app.get('/react-food-api/foodTypes', (request, response) => {
   response.json(foodTypes)
 })
 
-app.get('/api/products', (request, response) => {
+app.get('/react-food-api/products', (request, response) => {
   response.json(products)
 })
 
